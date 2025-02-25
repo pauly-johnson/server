@@ -10,8 +10,7 @@ app.use(cors());  // Enable Cross-Origin Resource Sharing
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    
 })
     .then(() => console.log('Connected to MongoDB'))
     .catch((err) => console.error('MongoDB error:', err));
@@ -26,9 +25,11 @@ app.use('/api/test', testRoutes);  // Mount test routes under '/api/test'
 app.get('/', (req, res) => {
     res.send('API is working!');
 });
-
+app.get('/api/test', (req, res) => {
+    res.json({ message: 'API is working!' });
+  });
 // Start the server
-const PORT = process.env.PORT || 5000;  // Use port from environment variable or default to 5000
+const PORT = process.env.PORT || 10000;  // Use port from environment variable or default to 5000
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
