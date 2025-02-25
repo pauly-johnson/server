@@ -22,9 +22,9 @@ const testRoutes = require('./routes/testRoutes');  // Import routes for CRUD op
 app.use('/api/test', testRoutes);  // Mount test routes under '/api/test'
 
 // Test route (API is working)
-// app.get('/', (req, res) => {
-//     res.send('API is working!');
-// });
+app.get('/', (req, res) => {
+    res.send('API is working!');
+});
 // app.get('/api/test', (req, res) => {
 //     res.json({ message: 'API is working!' });
 //   });
